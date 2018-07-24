@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: () => import('@/views/home.vue')
+    },
+    {
+      path: '/projects',
+      name: 'Projects',
+      component: () => import('@/views/projects.vue')
     }
   ]
 })
