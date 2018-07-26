@@ -4,7 +4,7 @@
       <div class="left_box">
         <div class="content_box">
           <div class="content_box_avatar_box" @mouseover="isAvatarHover = true" @mouseleave="isAvatarHover = false" :class="{'animated flash': isAvatarHover}">
-            <img src="https://qiniu.zoombin.com/15324673605091"/>
+            <img :src="avatarUrl"/>
           </div>
           <div class="content_box_name_box">
             <p>YI MO</p>
@@ -13,9 +13,9 @@
             <p>Design | Develop | Deploy</p>
           </div>
           <div class="content_box_social_box">
-            <span v-for="(item, index) in socialBtns" class="social_item fa-stack fa-lg" @mouseover="setIconHover(index)" @mouseleave="setIconLeaveHover(index)" :class="{'animated rubberBand':item.isHover}">
-              <i class="fa fa-square fa-stack-2x " :class="{'fa-inverse': isInverse(index)}"></i>
-              <i class="fab fa-stack-1x" :class="[item.c, {'fa-inverse': !isInverse(index)}]"></i>
+            <span v-for="(item, index) in socialBtns" class="social_item fa-stack fa-lg" @mouseover="setIconHover(index,item)" @mouseleave="setIconLeaveHover(index,item)" :class="{'animated rubberBand':item.isHover}" @click="(item.type==='wechat') ? '' : openNewWindow(item.link)">
+                <i class="fa fa-square fa-stack-2x " :class="{'fa-inverse': isInverse(index)}"></i>
+                <i class="fab fa-stack-1x" :class="[item.c, {'fa-inverse': !isInverse(index)}]"></i>
             </span>
           </div>
         </div>
@@ -33,7 +33,7 @@
               I’m a product person with a great passion for data and design. With 2+ years' industry experience in web application development, UX/UI design and product management, I’m dedicated to be a full-stack developer and using my skills to create and develop impactful products.
             </p>
             <p class="content_box_desc_text">
-              Find out more on my <a>Resume</a> and <a>Projects</a> page.
+              Find out more on my <a>Resume</a> and <a @click="goToProjects">Projects</a> page.
             </p>
             <div class="content_box_desc_tags_row">
               <span @click="openNewWindow('https://vuejs.org/')"><el-tag type="success">Vue.js</el-tag></span>
@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="fixed_navTags_box">
+        <div class="fixed_navTags_box" @click="goToProjects">
           <i class="fab fa-buromobelexperte fa-2x"></i>
           <p>
             PROJECTS
@@ -65,31 +65,47 @@
 		name: 'home',
     data() {
       return {
+        avatarUrl: 'https://qiniu.zoombin.com/15326471795101',
+        images: {
+          person: 'https://qiniu.zoombin.com/15326471795101',
+          wechatQRCode: 'https://qiniu.zoombin.com/15326472445439'
+        },
         hover: false,
         showHoverContent: false,
         isAvatarHover: false,
         socialBtns: [
-          {c:'fab fa-facebook-f', isHover: false},
-          {c:'fab fa-linkedin-in', isHover: false},
-          {c:'fas fa-envelope', isHover: false},
-          {c:'fab fa-github', isHover: false},
-          {c:'fab fa-weixin', isHover: false},
+          {c:'fab fa-facebook-f', isHover: false, type: 'website', link: 'https://www.facebook.com/yimoszone'},
+          {c:'fab fa-linkedin-in', isHover: false, type: 'website', link: 'https://www.linkedin.com/in/yimoszone/'},
+          {c:'fas fa-envelope', isHover: false, type: 'email', link: 'mailto:moyi0619@gmail.com'},
+          {c:'fab fa-github', isHover: false, type: 'website', link: 'https://github.com/3words4you'},
+          {c:'fab fa-weixin', isHover: false, type: 'wechat'},
         ]
       }
+    },
+    computed: {
+
     },
     methods: {
       isInverse(index) {
         return index % 2;
       },
-      setIconHover(index) {
+      setIconHover(index,item) {
         this.socialBtns[index].isHover = true;
+        let { type } = item;
+        if(type && type === 'wechat'){
+          this.avatarUrl = this.images.wechatQRCode;
+        }
       },
-      setIconLeaveHover(index) {
+      setIconLeaveHover(index,item) {
         this.socialBtns[index].isHover = false;
+        let { type } = item;
+        if(type && type === 'wechat'){
+          this.avatarUrl = this.images.person;
+        }
       },
-      navTabClick(tab) {
+      goToProjects() {
         this.$router.push({
-          path: '/'+tab
+          path: '/projects'
         })
       },
       openNewWindow(url) {
@@ -136,7 +152,6 @@
         img
           height: auto
           width: 100%
-          margin-top: -25px
       &_name_box
         color: white
         font-size: 40px
@@ -173,7 +188,6 @@
         .social_item
           margin: 0 10px
           cursor: pointer
-
   .right_box
     width: 50%
     height: 100%
@@ -220,6 +234,7 @@
       position: absolute
       top: 30px
       right: 30px
+      cursor: pointer
       p
         margin: 5px 0 0 0
         color: #999
@@ -234,5 +249,6 @@
       position: absolute
       top: calc(100%+30px)
       right: 30px
+      cursor: pointer
 
 </style>
