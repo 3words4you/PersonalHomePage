@@ -21,51 +21,40 @@
         </div>
       </div>
       <div class="right_box">
-
-      </div>
-    </div>
-    <!-- <div class="home-bg"></div>
-    <div class="home">
-      <div class="content">
-        <div class="middle-container" @mouseover="middleContainerMouseOver" @mouseleave="middleContainerMouseLeave">
-          <div class="middle-container-avatar-wrapper">
-            <div class="middle-container-avatar-wrapper-container">
-              <img src="https://qiniu.zoombin.com/15324673605091" />
-            </div>
+        <div class="content_box">
+          <div class="content_box_title">
+            <p class="animated lightSpeedIn">About Me</p>
           </div>
-          <div v-if="!hover">
-            <div class="middle-container-intro-notHover animated fadeInUpBig faster">
-              <div class="middle-container-intro-notHover-row-one">
-                YI MO
-              </div>
-              <div class="middle-container-intro-notHover-row-two">
-                Computer Programmer/Analyst
-              </div>
+          <div class="content_box_desc">
+            <p class="content_box_desc_text">
+              I’m Yi :) A senior web application developer, graduated from Conestoga College at the field of Computer Science.
+            </p>
+            <p class="content_box_desc_text">
+              I’m a product person with a great passion for data and design. With 2+ years' industry experience in web application development, UX/UI design and product management, I’m dedicated to be a full-stack developer and using my skills to create and develop impactful products.
+            </p>
+            <p class="content_box_desc_text">
+              Find out more on my <a>Resume</a> and <a>Projects</a> page.
+            </p>
+            <div class="content_box_desc_tags_row">
+              <span @click="openNewWindow('https://vuejs.org/')"><el-tag type="success">Vue.js</el-tag></span>
+              <span @click="openNewWindow('https://reactjs.org/')"><el-tag type="primary">React.js</el-tag></span>
             </div>
-          </div>
-          <div v-else>
-            <div class="middle-container-intro-hover animated" :class="[{'rotateIn': showHoverContent,'fadeOut': !showHoverContent}]" >
-              <div class="middle-container-intro-hover-box">
-                <p>
-                  I’m Yi :) A senior web application developer, graduated from Conestoga College at the field of Computer Science.
-                </p>
-                <p>
-                  I’m a product person with a great passion for data and design. With 2+ years' industry experience in web application development, UX/UI design and product management, I’m dedicated to be a full-stack developer and using my skills to create and develop impactful products. Find out more on my resume and Projects page.
-                </p>
-              </div>
+            <div class="content_box_desc_tags_row">
+              <span @click="openNewWindow('https://koajs.com/')"><el-tag type="info">Node.js / Koa / Express</el-tag></span>
             </div>
-          </div>
-          <div class="middle-container-socialBtns-container">
-            <a href="#" ><i class="fab fa-facebook"></i></a>
-
-
+            <div class="content_box_desc_tags_row">
+              <span @click="openNewWindow('https://www.mongodb.com/')"><el-tag type="warning">MYSQL / MongoDB / MSSQL / Oracle SQL</el-tag></span>
+            </div>
           </div>
         </div>
+        <div class="fixed_navTags_box">
+          <i class="fab fa-buromobelexperte fa-2x"></i>
+          <p>
+            PROJECTS
+          </p>
+        </div>
       </div>
-      <div class="footer">
-
-      </div>
-  	</div> -->
+    </div>
   </div>
 
 </template>
@@ -103,16 +92,8 @@
           path: '/'+tab
         })
       },
-      middleContainerMouseOver() {
-        this.hover = true;
-        this.showHoverContent = true;
-      },
-      middleContainerMouseLeave() {
-        let self = this;
-        this.showHoverContent = false;
-        setTimeout(function(){
-          self.hover = false;
-        }, 500);
+      openNewWindow(url) {
+        window.open(url);
       }
     }
 	};
@@ -145,7 +126,6 @@
       width: 100%
       max-width: 400px
       margin: 0 auto
-      /* border: 1px white solid */
       text-align: center
       &_avatar_box
         height: 150px
@@ -195,12 +175,64 @@
           cursor: pointer
 
   .right_box
-    wdith: 50%
+    width: 50%
     height: 100%
-
+    display: flex
+    align-items: center
+    justify-content: center
+    font-family: sans-serif
+    .content_box
+      width: 100%
+      max-width: 400px
+      margin: 0 auto
+      text-align: left
+      padding: 0 5px
+      &_title:after
+        content: ""
+        width: 180px
+        height: 2px
+        background: linear-gradient(to right,#4bc37b, rgba(226, 228, 237, 0.9))
+        margin-top: 12px
+        position: absolute
+      &_title
+        color: rgb(96, 98, 102)
+        font-size: 35px
+        p
+          margin: 0
+      &_desc
+        color: #999
+        padding-top: 30px;
+        &_text
+          margin: 0 0 15px 0
+          font-weight: 100
+          a
+            color: black
+            outline: none
+            text-decoration: none
+            font-weight: 400
+            cursor: pointer
+        &_tags_row
+          margin: 0 0 10px 0
+          .el-tag
+            cursor: pointer
+    .fixed_navTags_box
+      text-align: center
+      position: absolute
+      top: 30px
+      right: 30px
+      p
+        margin: 5px 0 0 0
+        color: #999
+        font-weight: 100
+        font-size: 10px
   @media only screen and (max-width: 960px)
     .left_box, .right_box
       float: none
       width: 100%
+    .right_box .fixed_navTags_box
+      text-align: center
+      position: absolute
+      top: calc(100%+30px)
+      right: 30px
 
 </style>
