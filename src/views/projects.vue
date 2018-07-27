@@ -14,7 +14,7 @@
           </div>
         </div>
         <el-menu-item index="1">
-          <span slot="title">p1</span>
+          <span slot="title">E-cigarette Community</span>
         </el-menu-item>
         <el-menu-item index="2">
           <span slot="title">p2</span>
@@ -27,7 +27,7 @@
       </el-header>
       <el-main>
         <el-tabs type="border-card">
-          <el-tab-pane label="Introduction">Introduction</el-tab-pane>
+          <el-tab-pane label="Introduction"></el-tab-pane>
           <el-tab-pane label="Demo">Graphics Demo</el-tab-pane>
         </el-tabs>
       </el-main>
@@ -73,4 +73,10 @@
     height: 100%
   .el-tabs.el-tabs--top.el-tabs--border-card
     height: 100%
+  .el-carousel__item h3
+    color: #475669
+    font-size: 14px
+    opacity: 0.75
+    line-height: 200px
+    margin: 0
 </style>
