@@ -104,9 +104,9 @@
         }
       },
       goToProjects() {
-        // this.$router.push({
-        //   path: '/projects'
-        // })
+        this.$router.push({
+          path: '/projects'
+        })
       },
       openNewWindow(url) {
         window.open(url);

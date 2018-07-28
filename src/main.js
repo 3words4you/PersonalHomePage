@@ -10,7 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import 'animate.css/animate.min.css'
 
 Vue.use(ElementUI);
-// 设置语言
+// set language
 locale.use(lang)
 
 Vue.config.productionTip = false
