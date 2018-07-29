@@ -33,7 +33,7 @@
               I’m a product person with a great passion for data and design. With 2+ years' industry experience in web application development, UX/UI design and product management, I’m dedicated to be a full-stack developer and using my skills to create and develop impactful products.
             </p>
             <p class="content_box_desc_text">
-              Find out more on my <a>Resume</a> and <a @click="goToProjects">Projects</a> page.
+              Find out more on my <a @click="openNewWindow('https://qiniu.zoombin.com/Resume_YiMo_1532825195.pdf')">Resume</a> and <a @click="goToProjects">Projects</a> page.
             </p>
             <div class="content_box_desc_tags_row">
               <span @click="openNewWindow('https://vuejs.org/')"><el-tag type="success">Vue.js</el-tag></span>
