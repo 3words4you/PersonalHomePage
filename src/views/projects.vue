@@ -29,10 +29,10 @@
 
 <script>
   /* eslint-disable */
-  import projectCommunityImg from '../assets/images/projectCommunity.jpg';
+  import projectCommunityImg from '../assets/images/projectCommunity0726.jpg';
   import projectZhuazhuakanImg from '../assets/images/projectZhuazhuakan.jpg';
-  import projectCMSImg from '../assets/images/projectCMS.jpg';
-  import projectYutianxiaImg from '../assets/images/projectYutianxia.jpg';
+  import projectCMSImg from '../assets/images/projectCMS0726.jpg';
+  import projectYutianxiaImg from '../assets/images/projectYutianxia0726.jpg';
 	export default {
 		name: 'projects',
     data() {
