@@ -9,7 +9,7 @@
       </div>
       <div class="projects_page_projects_box">
         <div v-for="item in filteredProjects" class="project_item hovereffect">
-          <img  :src="item.image" alt="image load failed">
+          <img  :src="item.image" alt="image load failed" style="height:100%">
           <div class="overlay">
              <h2>{{item.name}}</h2>
              <p>{{item.desc}}</p>
@@ -90,8 +90,7 @@
     height: 100%
     overflow-y: scroll
     font-family: sans-serif
-    /* background: linear-gradient(rgba(237, 145, 121, 0.9), rgba(237, 145, 121, 0.9)), url(https://qiniu.zoombin.com/15325485917276?imageslim) no-repeat */
-    background: linear-gradient(rgba(219, 164, 164, 0.7), rgba(291, 164, 164, 0.7)), url(https://qiniu.zoombin.com/15325485917276?imageslim) no-repeat
+    background: linear-gradient(rgba(219, 164, 164, 0.7), rgba(291, 164, 164, 0.7)), url(../assets/images/bg15325485917276.jpg) no-repeat
     background-size: cover
     display: flex
     align-items: center

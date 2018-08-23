@@ -61,14 +61,16 @@
 
 <script>
   /* eslint-disable */
+  import personImg from '../assets/images/person0726.jpg';
+  import qrCodeImg from '../assets/images/qrCode0726.jpg';
 	export default {
 		name: 'home',
     data() {
       return {
-        avatarUrl: 'https://qiniu.zoombin.com/15326471795101',
+        avatarUrl: personImg,
         images: {
-          person: 'https://qiniu.zoombin.com/15326471795101',
-          wechatQRCode: 'https://qiniu.zoombin.com/15326472445439'
+          person: personImg,
+          wechatQRCode: qrCodeImg
         },
         hover: false,
         showHoverContent: false,
@@ -133,7 +135,7 @@
     width: 50%
     height: 100%
     float: left
-    background: linear-gradient(rgba(44,45,51,0.9), rgba(44,45,51,0.9)), url(https://qiniu.zoombin.com/15325485917276?imageslim) no-repeat
+    background: linear-gradient(rgba(44,45,51,0.9), rgba(44,45,51,0.9)), url(../assets/images/bg15325485917276.jpg) no-repeat
     background-size: cover
     display: flex
     align-items: center
