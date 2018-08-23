@@ -9,7 +9,7 @@
       </div>
       <div class="projects_page_projects_box">
         <div v-for="item in filteredProjects" class="project_item hovereffect">
-          <img  :src="item.image" alt="image load failed" style="height:100%">
+          <img  :src="item.image" alt="image load failed">
           <div class="overlay">
              <h2>{{item.name}}</h2>
              <p>{{item.desc}}</p>
@@ -133,15 +133,16 @@
         padding: 0
         width: 41%
         height: auto
+        overflow: hidden
         img
           height: 100%
           width: 100%
           object-fit: cover
           border-radius: 5px
         &:before
-          content:''
-          padding: 50% 0 /* vertical value as  100% equals width */
-          display: inline-block
+          content:'';
+          padding-top:100%; /* vertical value as  100% equals width */
+          float:left;
     .fixed_navTags_box
       text-align: center
       position: absolute
